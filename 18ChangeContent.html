@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Change Text</title>
+  </head>
+  <body>
+    <h1>Welcome</h1>
+    <p id="p1">Hello All</p>
+    <p>Thank you</p>
+
+    <script>
+      document.querySelector("h1").innerHTML =
+        "<span style = 'color: blue;'<i>Welcome Kodnest</i>";
+      document.getElementById("p1").innerText = "How are you";
+      document.getElementsByTagName("p")[1].textContent = "Smile:)";
+
+      let para = document.querySelectorAll("p");
+      for (let i = 0; i < para.length; i++) {
+        para[i].style.color = "red";
+        para[i].style.backgroundColor = "yellow";
+        para[i].style.fontSize = "40px";
+      }
+    </script>
+  </body>
+</html>

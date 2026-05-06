@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Attribute </title>
+</head>
+<body>
+    <a href="https://www.kodnest.com" id="mylink">Go to Kodnest</a>
+
+    <script>
+        link = document.getElementById("mylink");
+
+        // Set Attribute
+        link.setAttribute("href", "https://www.facebook.com")
+        link.innerText = "Go to Facebook"
+
+        // Remove Attribute
+        link.removeAttribute("href")
+
+        // Get Attribute
+        url = link.getAttribute("href")
+        alert(url)
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Events</title>
+  </head>
+  <body>
+    <form>
+      <label>Input: </label>
+      <input type="text" placeholder="Enter name" name="username" id="input" />
+      <br />
+      <br />
+      <button type="submit">Submit</button>
+    </form>
+    <script>
+      document.querySelector("form").addEventListener("submit", () => {
+        alert("Form submitted successfully");
+      });
+
+      const input = document.getElementById("input");
+      input.addEventListener("change", (event) => {
+        console.log(`Input Changed to : ${event.target.value}`);
+      });
+
+      input.addEventListener("focus", () => {
+        console.log("Input field focus");
+      });
+
+      input.addEventListener("blur", () => {
+        console.log("Input field is out of focus");
+      });
+
+      input.addEventListener("input", (event) => {
+        console.log(`The input is ${event.target.value}`);
+      });
+    </script>
+  </body>
+</html>

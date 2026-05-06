@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <!--Username validation - no numbers only alphabets
+    aplha - uppercase, not empty, min 2 and max 100 char-->
+    <h1>Registration Form</h1>
+    <form>
+      <label>User name:</label>
+      <input
+        type="text"
+        id="name"
+        oninput="toUpperCaseInput()"
+        name="username"
+      />
+      <br />
+      <br />
+      <input type="submit" />
+    </form>
+
+    <script>
+      function toUpperCaseInput() {
+        const input = document.getElementById("name");
+        input.value = input.value.toUpperCase();
+      }
+
+      f = document.querySelector("form");
+      f.addEventListener("submit", (e) => {
+        e.preventDefault();
+        let regex = /^[a-zA-Z]+$/;
+
+        let Username = document.getElementById("name").value;
+        if (Username === " ") {
+          alert("Should do not be empty");
+        } else if (Username.length < 2) {
+          alert("Minimum of 3 characters must be allowed");
+        } else if (Username.length > 100) {
+          alert("Maximum of 100 characters is allowed");
+        } else if (!regex.test(Username)) {
+          alert("Not Valid");
+        } else {
+          alert("Valid");
+        }
+      });
+    </script>
+  </body>
+</html>

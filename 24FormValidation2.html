@@ -1,0 +1,195 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Form Validation</title>
+  </head>
+  <body>
+    <h1>Registration Form</h1>
+    <form id="registrationForm">
+      <label for="username">Username:</label>
+      <input type="text" id="username"required oninput="toUpperCaseInput(this)"
+      /><br /><br />
+
+      <label for="email">Email:</label>
+      <input type="email" id="email" required /><br /><br />
+
+      <label for="password">Password:</label>
+      <input type="password" id="password" required /><br /><br />
+
+      <label for="phone">Phone no:</label>
+      <input type="tel" id="phone" required /><br /><br />
+
+      <button type="submit">Submit</button>
+      <button type="reset">Reset</button>
+    </form>
+
+    <script>
+      function toUpperCaseInput(input) {
+        input.value = input.value.toUpperCase();
+      }
+
+      const form = document.getElementById("registrationForm");
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+
+        const username = document.getElementById("username").value.trim();
+        const email = document.getElementById("email").value.trim();
+        const password = document.getElementById("password").value;
+        const phone = document.getElementById("phone").value.trim();
+
+        // Regex patterns
+        const usernameRegex = /^[A-Z]{2,100}$/;
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        const passwordRegex =
+          /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)[A-Za-z\d@$!%*?&]{8,}$/;
+        const phoneRegex = /^\d{10}$/;
+
+        // Validate username
+        if (!username) {
+          alert("Username is required");
+        }
+        if (username.length < 2 || username.length > 100) {
+          alert("Username must be 2-100 characters");
+        }
+        if (!usernameRegex.test(username)) {
+          alert("Username must contain only alphabets");
+        }
+
+        // Validate email
+        if (!emailRegex.test(email)) {
+          alert("Please enter a valid email address");
+        }
+
+        // Validate password
+        if (!passwordRegex.test(password)) {
+          alert(
+            "Password must be 8+ chars with uppercase, lowercase, digit, and special char",
+          );
+        }
+
+        // Validate phone
+        if (!phoneRegex.test(phone)) {
+          alert("Phone must be exactly 10 digits");
+        }
+
+        alert("Form validated successfully! Registration complete.");
+      });
+    </script>
+  </body>
+</html>
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Register Form</h1>
+    <form>
+        Username validation - no numbers only alpha
+     alpha - Uppercase , not empty , min 2 and max 100 -->
+     <!-- <label> User name: </label>
+     <input type="text" id="name" oninput="toUpperCaseInput()" name="username">
+     <br><br>
+     <label> Email: </label>
+     <input type="email" id="email" name="email">
+     <br><br>
+     <label> password: </label>
+     <input type="text" id="password" name="pwd">
+        <br><br>
+     <label> Phone: </label>
+     <input type="tel" id="phone" name="phone">
+     <br>
+     <br>
+     <input type="submit"> 
+    </form>
+
+
+    <script>
+        function toUpperCaseInput() {
+            const input =  document.getElementById("name");
+            input.value = input.value.toUpperCase();
+        }
+
+
+            f = document.querySelector("form");
+            f.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+
+            let Username = document.getElementById("name").value.trim();
+
+
+            let regex = /^[a-zA-Z]+$/;
+
+
+            if(Username === "") {
+                alert("Should not be empty")
+            }
+            else if(Username.length < 2){
+                alert("Min of 3 cahareters")
+            }
+            else if(Username.length > 100){
+                alert("Max of 100 cahareters")
+            }
+            else if(!regex.test(Username)){
+                alert("Not valid")
+            }
+            else {
+                alert("Vaild")
+            } -->  <!--//Emailvalidation -->
+        <!-- const email = document.getElementById("email").value.trim();
+        const emailPattern = /^[a-zA-Z0-9\.\-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+        if (!emailPattern.test(email)) {
+            alert(" Please enter a valid email address.");
+        }
+        else{
+        alert("Valid email!");
+        }
+
+
+        //password validation
+         const password = document.getElementById("password").value;
+        // At least one letter/At least one digit/At least one special character from @$!%*?&/Minimum length 8
+        ///^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/
+        const passwordPattern = /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,20}$/;
+        if (!passwordPattern.test(password)) {
+        alert("Password must be at least 8 characters long and include at least one letter and one number.");
+        }
+        alert("Password is valid!");
+
+
+        //phone 
+        const phone = document.getElementById("phone").value;
+            const regex1 = /^[0-9]{10}$/;
+           if(phone === "") {
+            alert("Phone no should not be empty")
+           }
+           else if(phone.length < 10) {
+            alert("Phone no less than 10 digit is not allowed")
+           }
+           else if(phone.length > 10) {
+            alert("Phone no greater than 10 digit is not allowed")
+           }
+           else if(!regex1.test(phone)) {
+                alert("In valid Format of phone no");
+           }
+           else{
+            alert("Valid")
+           }
+
+
+             alert("Form submitted");
+    
+    });
+
+
+    </script>
+    
+</body>
+</html> -->

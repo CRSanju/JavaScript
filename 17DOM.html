@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Show gender</title>
+  </head>
+  <body>
+    <p>Select Gender:</p>
+    <input type="radio" name="gender" value="male" />Male
+    <input type="radio" name="gender" value="female" />Female
+    <input type="radio" name="gender" value="others" />Others
+
+    <button onclick="showGender()">Submit</button>
+    <h1 id="result" style="color: blueviolet; font-style: italic"></h1>
+
+    <script>
+      function showGender() {
+        let genders = document.getElementsByName("gender");
+        for (let i = 0; i < genders.length; i++) {
+          if (genders[i].checked) {
+            document.getElementById("result").innerText = genders[i].value;
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

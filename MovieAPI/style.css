@@ -1,0 +1,198 @@
+/* RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+/* BODY WITH CINEMATIC BACKGROUND */
+body {
+  background:
+    linear-gradient(rgba(0,0,0,0.75), rgba(0,0,0,0.9)),
+    url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4");
+
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: white;
+  min-height: 100vh;
+
+  animation: zoomBg 20s infinite alternate ease-in-out;
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes zoomBg {
+  from { background-size: 100%; }
+  to { background-size: 110%; }
+}
+
+/* LOGIN CONTAINER */
+.login-container {
+  width: 350px;
+  margin: 100px auto;
+  padding: 40px;
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(20px);
+
+  border-radius: 12px;
+  box-shadow: 0 0 40px rgba(229, 9, 20, 0.6);
+  text-align: center;
+
+  animation: fadeIn 1s ease-in-out;
+}
+
+/* TITLE */
+.login-container h2 {
+  margin-bottom: 20px;
+  color: #e50914;
+  text-shadow: 0 0 10px red, 0 0 20px #ff3c3c;
+}
+
+/* LABEL */
+.login-container label {
+  display: block;
+  text-align: left;
+  margin: 10px 0 5px;
+}
+
+/* INPUT */
+.login-container input[type="email"],
+.login-container input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  background: rgba(255,255,255,0.1);
+  color: white;
+  transition: 0.3s;
+}
+
+.login-container input:focus {
+  box-shadow: 0 0 10px red;
+  transform: scale(1.03);
+}
+
+/* BUTTON */
+.login-container input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: linear-gradient(45deg, #e50914, #ff3c3c);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.login-container input[type="submit"]:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 15px red;
+}
+
+/* ERROR */
+#errorMsg {
+  color: red;
+  margin-top: 10px;
+}
+
+/* MOVIE PAGE */
+#moviePage {
+  display: none;
+  padding: 20px;
+}
+
+/* TITLE */
+#moviePage h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  text-shadow: 0 0 10px red;
+}
+
+/* SEARCH BOX */
+.search-box {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+#searchInput {
+  padding: 12px;
+  width: 260px;
+  border-radius: 6px;
+  border: none;
+  background: rgba(255,255,255,0.1);
+  color: white;
+}
+
+button {
+  padding: 12px 18px;
+  margin-left: 10px;
+  background: linear-gradient(45deg, #e50914, #ff3c3c);
+  border: none;
+  border-radius: 6px;
+  color: white;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px red;
+}
+
+/* MOVIE GRID */
+#movieList {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 25px;
+  list-style: none;
+  padding: 20px;
+}
+
+/* MOVIE CARD */
+.movie-card {
+  background: linear-gradient(145deg, #1a1a1a, #222);
+  border-radius: 12px;
+  overflow: hidden;
+  text-align: center;
+  transition: 0.4s;
+}
+
+.movie-card:hover {
+  transform: scale(1.08);
+  box-shadow: 0 0 25px rgba(255, 0, 0, 0.6);
+}
+
+/* IMAGE */
+.movie-card img {
+  width: 100%;
+  height: 320px;
+  object-fit: cover;
+}
+
+/* TITLE */
+.movie-card h3 {
+  margin: 10px 0;
+  color: #ff3c3c;
+}
+
+/* YEAR */
+.movie-card p {
+  color: #bbb;
+  margin-bottom: 10px;
+}
+
+/* FADE ANIMATION */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

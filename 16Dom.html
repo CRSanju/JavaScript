@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM</title>
+  </head>
+  <body>
+    <h1 id="heading">Kodnest</h1>
+    <h3>Code with KodNest</h3>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum at et eos
+      ullam magni maiores, praesentium exercitationem ipsa! Dicta soluta
+      asperiores doloremque sed dolores! Deleniti et facilis aspernatur quod a.
+    </p>
+    <p class="italic">Hello All welcome</p>
+    <p>
+      Lorem ipsum dolor sit amet consectetur adipisicing elit. Illum at et eos
+      ullam magni maiores, praesentium exercitationem ipsa! Dicta soluta
+      asperiores doloremque sed dolores! Deleniti et facilis aspernatur quod a.
+    </p>
+    <p>Hello All welcome</p>
+    <button type="submit" onclick="changeText()">Click here</button>
+
+    <script>
+      function changeText() {
+        document.getElementById("heading").style.color = "red";
+
+        // document.getElementsByTagName("p")[0].style.backgroundColor = "purple";
+        // document.getElementsByTagName("p")[1].style.color = "green";
+
+        let p = document.getElementsByTagName("p");
+        for (let i = 0; i < p.length; i++) {
+          p[0].style.color = "red";
+          p[1].style.color = "yellow";
+          p[2].style.color = "blue";
+        }
+
+        document.getElementsByClassName("italic")[0].innerHTML =
+          "<i><b>Hello All welcome</b></i>";
+        document.querySelector("h3").innerText = "Learn with Us";
+        let arr = document.querySelectorAll(".italic");
+        for (let i = 0; i < arr.length; i++) {
+          arr[i].style.color = "red";
+          arr[i].style.fontweight = "bold";
+        }
+      }
+    </script>
+  </body>
+</html>

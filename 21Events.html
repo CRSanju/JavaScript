@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Events</title>
+    <style>
+      body {
+        height: 2000vh;
+      }
+
+      #box {
+        width: 200px;
+        height: 200px;
+        padding: 20px;
+        margin: 20px;
+        border: 3px solid red;
+        background-color: aqua;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>DOM CONTENT</h2>
+    <input type="text" id="ip" placeholder="start typing" />
+    <br />
+    <div id="box">Click or Hover on me</div>
+    <script>
+      console.log("--------------Mouse Events-------------");
+      const box = document.getElementById("box");
+      // Mouse - single click
+      box.addEventListener("click", () => {
+        box.style.backgroundColor = "red";
+        box.style.color = "white";
+      });
+
+      // Mouse - doubleClick - dblclick
+      box.addEventListener("dblclick", () => {
+        box.style.backgroundColor = "yellow";
+        box.style.color = "brown";
+      });
+
+      //Mouse - mouse Hover
+      box.addEventListener("mouseover", () => {
+        box.style.backgroundColor = "green";
+        box.style.color = "white";
+      });
+
+      //Mouse - mouse out
+      box.addEventListener("mouseout", () => {
+        box.style.backgroundColor = "blue";
+        box.style.color = "white";
+      });
+
+      //Mouse - mouse move
+      box.addEventListener("mousemove", (event) => {
+        //console.log(`Mouse position is ${event.offsetX} and ${event.offsetY}`)
+        box.innerText = `Mouse position is ${event.offsetX} and ${event.offsetY}`;
+      });
+
+      console.log("-------------------Keyboard Events------------");
+      const op = document.getElementById("ip");
+      //keydown
+      op.addEventListener("keydown", (event) => {
+        console.log(`key DOWN is ${event.key}`);
+      });
+      //keyup
+      op.addEventListener("keyup", (event) => {
+        console.log(`key UP is ${event.key}`);
+      });
+      //keypress
+      op.addEventListener("keypress", (event) => {
+        console.log(`key pressed in keypress ${event.key}`);
+      });
+
+      console.log("------------------Window Events-----------------");
+      //We are working on the window events
+      //window - document.addEventListener("DOMContentLoaded")
+      document.addEventListener("DOMContentLoaded", () => {
+        alert("Content loaded successfully");
+      });
+
+      // window - resize
+      window.addEventListener("resize", () => {
+        alert("You cannot Resize the window");
+        // To block the account
+      });
+
+      // window - scroll
+      window.addEventListener("scroll", () => {
+        console.log("You are scrolling the screen");
+      });
+    </script>
+  </body>
+</html>
